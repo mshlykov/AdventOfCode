@@ -2,3 +2,6 @@
 
 Console.WriteLine(CalorieCounting.SolveP1("CalorieCounting.txt"));
 Console.WriteLine(CalorieCounting.SolveP2("CalorieCounting.txt"));
+
+Console.WriteLine(RockPaperScissors.SolveP1("RockPaperScissors.txt"));
+Console.WriteLine(RockPaperScissors.SolveP2("RockPaperScissors.txt"));
