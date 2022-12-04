@@ -8,3 +8,7 @@ Console.WriteLine(RockPaperScissors.SolveP2("RockPaperScissors.txt"));
 
 Console.WriteLine(RucksackReorganization.SolveP1("RucksackReorganization.txt"));
 Console.WriteLine(RucksackReorganization.SolveP2("RucksackReorganization.txt"));
+
+Console.WriteLine(CampCleanup.SolveP1("CampCleanup.txt"));
+Console.WriteLine(CampCleanup.SolveP2("CampCleanup.txt"));
+
