@@ -15,3 +15,6 @@ Console.WriteLine(CampCleanup.SolveP2("CampCleanup.txt"));
 Console.WriteLine(SupplyStacks.SolveP1("SupplyStacks.txt"));
 Console.WriteLine(SupplyStacks.SolveP2("SupplyStacks.txt"));
 
+Console.WriteLine(TuningTrouble.SolveP1("TuningTrouble.txt"));
+Console.WriteLine(TuningTrouble.SolveP2("TuningTrouble.txt"));
+
