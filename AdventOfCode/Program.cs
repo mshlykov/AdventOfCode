@@ -18,3 +18,6 @@ Console.WriteLine(SupplyStacks.SolveP2("SupplyStacks.txt"));
 Console.WriteLine(TuningTrouble.SolveP1("TuningTrouble.txt"));
 Console.WriteLine(TuningTrouble.SolveP2("TuningTrouble.txt"));
 
+Console.WriteLine(NoSpaceLeftOnDevice.SolveP1("NoSpaceLeftOnDevice.txt"));
+Console.WriteLine(NoSpaceLeftOnDevice.SolveP2("NoSpaceLeftOnDevice.txt"));
+
