@@ -21,3 +21,6 @@ Console.WriteLine(TuningTrouble.SolveP2("TuningTrouble.txt"));
 Console.WriteLine(NoSpaceLeftOnDevice.SolveP1("NoSpaceLeftOnDevice.txt"));
 Console.WriteLine(NoSpaceLeftOnDevice.SolveP2("NoSpaceLeftOnDevice.txt"));
 
+Console.WriteLine(TreetopTreeHouse.SolveP1("TreetopTreeHouse.txt"));
+Console.WriteLine(TreetopTreeHouse.SolveP2("TreetopTreeHouse.txt"));
+
