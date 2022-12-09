@@ -24,3 +24,6 @@ Console.WriteLine(NoSpaceLeftOnDevice.SolveP2("NoSpaceLeftOnDevice.txt"));
 Console.WriteLine(TreetopTreeHouse.SolveP1("TreetopTreeHouse.txt"));
 Console.WriteLine(TreetopTreeHouse.SolveP2("TreetopTreeHouse.txt"));
 
+Console.WriteLine(RopeBridge.SolveP1("RopeBridge.txt"));
+Console.WriteLine(RopeBridge.SolveP2("RopeBridge.txt"));
+
