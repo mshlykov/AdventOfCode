@@ -27,3 +27,5 @@ Console.WriteLine(TreetopTreeHouse.SolveP2("TreetopTreeHouse.txt"));
 Console.WriteLine(RopeBridge.SolveP1("RopeBridge.txt"));
 Console.WriteLine(RopeBridge.SolveP2("RopeBridge.txt"));
 
+Console.WriteLine(CathodeRayTube.SolveP1("CathodeRayTube.txt"));
+Console.WriteLine(CathodeRayTube.SolveP2("CathodeRayTube.txt"));
