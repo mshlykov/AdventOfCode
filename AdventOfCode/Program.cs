@@ -29,3 +29,9 @@ Console.WriteLine(RopeBridge.SolveP2("RopeBridge.txt"));
 
 Console.WriteLine(CathodeRayTube.SolveP1("CathodeRayTube.txt"));
 Console.WriteLine(CathodeRayTube.SolveP2("CathodeRayTube.txt"));
+
+Console.WriteLine(CathodeRayTube.SolveP1("CathodeRayTube.txt"));
+Console.WriteLine(CathodeRayTube.SolveP2("CathodeRayTube.txt"));
+
+Console.WriteLine(MonkeyInTheMiddle.SolveP1("MonkeyInTheMiddle.txt"));
+Console.WriteLine(MonkeyInTheMiddle.SolveP2("MonkeyInTheMiddle.txt"));
