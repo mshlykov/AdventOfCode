@@ -35,3 +35,6 @@ Console.WriteLine(CathodeRayTube.SolveP2("CathodeRayTube.txt"));
 
 Console.WriteLine(MonkeyInTheMiddle.SolveP1("MonkeyInTheMiddle.txt"));
 Console.WriteLine(MonkeyInTheMiddle.SolveP2("MonkeyInTheMiddle.txt"));
+
+Console.WriteLine(HillClimbingAlgorithm.SolveP1("HillClimbingAlgorithm.txt"));
+Console.WriteLine(HillClimbingAlgorithm.SolveP2("HillClimbingAlgorithm.txt"));
