@@ -38,3 +38,6 @@ Console.WriteLine(MonkeyInTheMiddle.SolveP2("MonkeyInTheMiddle.txt"));
 
 Console.WriteLine(HillClimbingAlgorithm.SolveP1("HillClimbingAlgorithm.txt"));
 Console.WriteLine(HillClimbingAlgorithm.SolveP2("HillClimbingAlgorithm.txt"));
+
+Console.WriteLine(DistressSignal.SolveP1("DistressSignal.txt"));
+Console.WriteLine(DistressSignal.SolveP2("DistressSignal.txt"));
