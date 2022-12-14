@@ -41,3 +41,6 @@ Console.WriteLine(HillClimbingAlgorithm.SolveP2("HillClimbingAlgorithm.txt"));
 
 Console.WriteLine(DistressSignal.SolveP1("DistressSignal.txt"));
 Console.WriteLine(DistressSignal.SolveP2("DistressSignal.txt"));
+
+Console.WriteLine(RegolithReservoir.SolveP1("RegolithReservoir.txt"));
+Console.WriteLine(RegolithReservoir.SolveP2("RegolithReservoir.txt"));
