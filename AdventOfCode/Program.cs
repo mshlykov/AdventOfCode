@@ -47,3 +47,6 @@ Console.WriteLine(RegolithReservoir.SolveP2("RegolithReservoir.txt"));
 
 Console.WriteLine(BeaconExclusionZone.SolveP1("BeaconExclusionZone.txt"));
 Console.WriteLine(BeaconExclusionZone.SolveP2("BeaconExclusionZone.txt"));
+
+Console.WriteLine(ProboscideaVolcanium.SolveP1("ProboscideaVolcanium.txt"));
+Console.WriteLine(ProboscideaVolcanium.SolveP2("ProboscideaVolcanium.txt"));
