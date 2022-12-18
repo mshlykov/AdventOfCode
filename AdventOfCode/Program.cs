@@ -50,3 +50,6 @@ Console.WriteLine(BeaconExclusionZone.SolveP2("BeaconExclusionZone.txt"));
 
 Console.WriteLine(ProboscideaVolcanium.SolveP1("ProboscideaVolcanium.txt"));
 Console.WriteLine(ProboscideaVolcanium.SolveP2("ProboscideaVolcanium.txt"));
+
+Console.WriteLine(BoilingBoulders.SolveP1("BoilingBoulders.txt"));
+Console.WriteLine(BoilingBoulders.SolveP2("BoilingBoulders.txt"));
