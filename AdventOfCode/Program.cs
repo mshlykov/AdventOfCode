@@ -53,3 +53,6 @@ Console.WriteLine(ProboscideaVolcanium.SolveP2("ProboscideaVolcanium.txt"));
 
 Console.WriteLine(BoilingBoulders.SolveP1("BoilingBoulders.txt"));
 Console.WriteLine(BoilingBoulders.SolveP2("BoilingBoulders.txt"));
+
+Console.WriteLine(NotEnoughMinerals.SolveP1("NotEnoughMinerals.txt"));
+Console.WriteLine(NotEnoughMinerals.SolveP2("NotEnoughMinerals.txt"));
