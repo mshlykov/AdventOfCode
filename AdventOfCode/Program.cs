@@ -56,3 +56,6 @@ Console.WriteLine(BoilingBoulders.SolveP2("BoilingBoulders.txt"));
 
 Console.WriteLine(NotEnoughMinerals.SolveP1("NotEnoughMinerals.txt"));
 Console.WriteLine(NotEnoughMinerals.SolveP2("NotEnoughMinerals.txt"));
+
+Console.WriteLine(GrovePositioningSystem.SolveP1("GrovePositioningSystem.txt"));
+Console.WriteLine(GrovePositioningSystem.SolveP2("GrovePositioningSystem.txt"));
