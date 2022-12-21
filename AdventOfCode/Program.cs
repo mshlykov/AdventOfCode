@@ -59,3 +59,6 @@ Console.WriteLine(NotEnoughMinerals.SolveP2("NotEnoughMinerals.txt"));
 
 Console.WriteLine(GrovePositioningSystem.SolveP1("GrovePositioningSystem.txt"));
 Console.WriteLine(GrovePositioningSystem.SolveP2("GrovePositioningSystem.txt"));
+
+Console.WriteLine(MonkeyMath.SolveP1("MonkeyMath.txt"));
+Console.WriteLine(MonkeyMath.SolveP2("MonkeyMath.txt"));
