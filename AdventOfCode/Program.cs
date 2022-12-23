@@ -62,3 +62,6 @@ Console.WriteLine(GrovePositioningSystem.SolveP2("GrovePositioningSystem.txt"));
 
 Console.WriteLine(MonkeyMath.SolveP1("MonkeyMath.txt"));
 Console.WriteLine(MonkeyMath.SolveP2("MonkeyMath.txt"));
+
+Console.WriteLine(UnstableDiffusion.SolveP1("UnstableDiffusion.txt"));
+Console.WriteLine(UnstableDiffusion.SolveP2("UnstableDiffusion.txt"));
