@@ -65,3 +65,6 @@ Console.WriteLine(MonkeyMath.SolveP2("MonkeyMath.txt"));
 
 Console.WriteLine(UnstableDiffusion.SolveP1("UnstableDiffusion.txt"));
 Console.WriteLine(UnstableDiffusion.SolveP2("UnstableDiffusion.txt"));
+
+Console.WriteLine(BlizzardBasin.SolveP1("BlizzardBasin.txt"));
+Console.WriteLine(BlizzardBasin.SolveP2("BlizzardBasin.txt"));
