@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AdventOfCode
+namespace AdventOfCode2022
 {
     internal class CathodeRayTube
     {

@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace AdventOfCode
+namespace AdventOfCode2022
 {
     internal class BeaconExclusionZone
     {

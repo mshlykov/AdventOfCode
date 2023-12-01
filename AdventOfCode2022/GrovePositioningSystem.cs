@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode
+﻿namespace AdventOfCode2022
 {
     internal class GrovePositioningSystem
     {
