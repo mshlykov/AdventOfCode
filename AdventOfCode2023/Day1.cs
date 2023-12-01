@@ -7,8 +7,10 @@
             return GetInput(fileName)
                 .Select(x =>
                 {
-                    var digits = x.Where(y => char.IsDigit(y)).ToArray();
-                    return (digits[0] - '0') * 10 + digits[digits.Length - 1] - '0';
+                    var digits = x.Where(y => char.IsDigit(y))
+                    .Select(y => y - '0')
+                    .ToArray();
+                    return digits[0] * 10 + digits[^1];
                 })
                 .Sum(x => (long)x);
         }
@@ -43,7 +45,7 @@
                     })
                     .Where(x => x.HasValue)
                     .ToArray();
-                    return digits[0].Value * 10 + digits[digits.Length - 1].Value;
+                    return digits[0]!.Value * 10 + digits[^1]!.Value;
                 })
                 .Sum(x => (long)x);
         }
