@@ -41,7 +41,7 @@
             var input = GetInput(fileName).ToArray();
             var maxX = input[0].Length - 1;
             var maxY = input.Length - 1;
-            var numbersData = new List<(long Number, IEnumerable<(int X, int Y)> Coords)>();
+            var numbersData = new List<(long Number, IEnumerable<(int X, int Y)> Probes)>();
             for (var i = 0; i <= maxY; ++i)
             {
                 for (var j = 0; j <= maxX; ++j)
@@ -60,7 +60,10 @@
 
                     var span = input[i].AsSpan(charsCoords[0].X, charsCoords.Count);
                     var number = long.Parse(span);
-                    numbersData.Add((number, charsCoords));
+                    var probes = charsCoords.SelectMany(y => GetProbes(y.X, y.Y, maxX, maxY))
+                        .Distinct()
+                        .ToArray();
+                    numbersData.Add((number, probes));
                 }
             }
 
@@ -75,7 +78,7 @@
                     }
 
                     var data = numbersData
-                            .Where(x => x.Coords.SelectMany(y => GetProbes(y.X, y.Y, maxX, maxY)).Contains((j, i)))
+                            .Where(x => x.Probes.Contains((j, i)))
                             .ToArray();
 
                     if (data.Length != 2)
