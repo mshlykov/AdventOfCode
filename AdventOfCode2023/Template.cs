@@ -1,20 +1,19 @@
-﻿namespace AdventOfCode2023
+﻿namespace AdventOfCode2023;
+
+internal class Template
 {
-    internal class Template
+    public static object SolveP1(string fileName) => 0;
+
+    public static object SolveP2(string fileName) => 0;
+
+    private static IEnumerable<string> GetInput(string fileName)
     {
-        public static object SolveP1(string fileName) => 0;
+        using var file = File.OpenRead(fileName);
+        using StreamReader sr = new(file);
 
-        public static object SolveP2(string fileName) => 0;
-
-        private static IEnumerable<string> GetInput(string fileName)
+        while (!sr.EndOfStream)
         {
-            using var file = File.OpenRead(fileName);
-            using StreamReader sr = new(file);
-
-            while (!sr.EndOfStream)
-            {
-                yield return sr.ReadLine();
-            }
+            yield return sr.ReadLine();
         }
     }
 }
