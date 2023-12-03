@@ -1,10 +1,10 @@
-﻿namespace AdventOfCode2022
+﻿namespace AdventOfCode2023
 {
     internal class Template
     {
-        public static int SolveP1(string fileName) => 0;
+        public static object SolveP1(string fileName) => 0;
 
-        public static int SolveP2(string fileName) => 0;
+        public static object SolveP2(string fileName) => 0;
 
         private static IEnumerable<string> GetInput(string fileName)
         {
