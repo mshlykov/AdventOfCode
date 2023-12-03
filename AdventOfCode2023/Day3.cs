@@ -2,46 +2,39 @@
 {
     internal class Day3
     {
-        public static object SolveP1(string fileName)
-        {
-            var input = GetInput(fileName).ToArray();
-            var maxX = input[0].Length - 1;
-            var maxY = input.Length - 1;
-            var result = 0L;
-            for (var i = 0; i <= maxY; ++i)
-            {
-                for (var j = 0; j <= maxX; ++j)
-                {
-                    if (!char.IsDigit(input[i][j]))
-                    {
-                        continue;
-                    }
-
-                    var charsCoords = new List<(int X, int Y)>();
-                    while (j <= maxX && char.IsDigit(input[i][j]))
-                    {
-                        charsCoords.Add((j, i));
-                        ++j;
-                    }
-
-                    if (!charsCoords.SelectMany(x => GetProbes(x.X, x.Y, maxX, maxY)).Any(y => !char.IsDigit(input[y.Y][y.X]) && input[y.Y][y.X] != '.'))
-                    {
-                        continue;
-                    }
-
-                    var span = input[i].AsSpan(charsCoords[0].X, charsCoords.Count);
-                    result += long.Parse(span);
-                }
-            }
-            return result;
-        }
+        public static object SolveP1(string fileName) => GetNumbersData(fileName)
+            .Where(x => x.Probes.Any(y => !char.IsDigit(y.Char) && y.Char != '.'))
+            .Sum(x => x.Number);
 
         public static object SolveP2(string fileName)
         {
-            var input = GetInput(fileName).ToArray();
-            var maxX = input[0].Length - 1;
-            var maxY = input.Length - 1;
-            var numbersData = new List<(long Number, IEnumerable<(int X, int Y)> Probes)>();
+            var numbersData = GetNumbersData(fileName)
+                .ToArray();
+            return numbersData.SelectMany(x => x.Probes)
+                .Where(x => x.Char == '*')
+                .DistinctBy(x => x.Coords)
+                .Select(x =>
+                {
+                    var data = numbersData
+                        .Where(y => y.Probes.Any(z => z.Coords == x.Coords))
+                        .ToArray();
+
+                    return data.Length == 2 ? data[0].Number * data[1].Number : 0;
+                })
+                .Sum();
+        }
+
+        private static IEnumerable<(long Number, IEnumerable<(char Char, (int X, int Y) Coords)> Probes)> GetNumbersData(string fileName)
+        {
+            var input = GetInput(fileName)
+                .ToArray();
+            var (maxX, maxY) = (input[0].Length - 1, input.Length - 1);
+            var probesDeltas = new[] {
+                (-1, -1), (-1, 0), (-1, 1),
+                (0, -1), (0, 0), (0, 1),
+                (1, -1), (1, 0), (1, 1)
+            };
+
             for (var i = 0; i <= maxY; ++i)
             {
                 for (var j = 0; j <= maxX; ++j)
@@ -52,54 +45,22 @@
                     }
 
                     var charsCoords = new List<(int X, int Y)>();
-                    while (j <= maxX && char.IsDigit(input[i][j]))
+                    for (; j <= maxX && char.IsDigit(input[i][j]); ++j)
                     {
                         charsCoords.Add((j, i));
-                        ++j;
                     }
 
-                    var span = input[i].AsSpan(charsCoords[0].X, charsCoords.Count);
-                    var number = long.Parse(span);
-                    var probes = charsCoords.SelectMany(y => GetProbes(y.X, y.Y, maxX, maxY))
+                    var number = long.Parse(input[i].AsSpan(charsCoords[0].X, charsCoords.Count));
+                    var probes = charsCoords.SelectMany(y => probesDeltas.Select(p => (X: y.X + p.Item1, Y: y.Y + p.Item2))
+                        .Where(p => p.Item1 >= 0 && p.Item1 <= maxX && p.Item2 >= 0 && p.Item2 <= maxY))
                         .Distinct()
+                        .Select(x => (input[x.Y][x.X], x))
                         .ToArray();
-                    numbersData.Add((number, probes));
+
+                    yield return (number, probes);
                 }
             }
-
-            var result = 0L;
-            for (var i = 0; i <= maxY; ++i)
-            {
-                for (var j = 0; j <= maxX; ++j)
-                {
-                    if (input[i][j] != '*')
-                    {
-                        continue;
-                    }
-
-                    var data = numbersData
-                            .Where(x => x.Probes.Contains((j, i)))
-                            .ToArray();
-
-                    if (data.Length != 2)
-                    {
-                        continue;
-                    }
-
-                    result += data[0].Number * data[1].Number;
-                }
-            }
-            return result;
         }
-
-        private static IEnumerable<(int X, int Y)> GetProbes(int x, int y, int maxX, int maxY) => new[] {
-                (-1, -1), (-1, 0), (-1, 1),
-                (0, -1), (0, 0), (0, 1),
-                (1, -1), (1, 0), (1, 1)
-            }
-            .Select(p => (x + p.Item1, y + p.Item2))
-            .Where(p => p.Item1 >= 0 && p.Item1 <= maxX && p.Item2 >= 0 && p.Item2 <= maxY)
-            .ToArray();
 
         private static IEnumerable<string> GetInput(string fileName)
         {
