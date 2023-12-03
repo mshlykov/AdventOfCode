@@ -52,7 +52,7 @@ internal class Day3
 
                 var number = long.Parse(input[i].AsSpan(charsCoords[0].X, charsCoords.Count));
                 var probes = charsCoords.SelectMany(y => probesDeltas.Select(p => (X: y.X + p.Item1, Y: y.Y + p.Item2))
-                    .Where(p => p.Item1 >= 0 && p.Item1 <= maxX && p.Item2 >= 0 && p.Item2 <= maxY))
+                    .Where(p => p.X >= 0 && p.X <= maxX && p.Y >= 0 && p.Y <= maxY))
                     .Distinct()
                     .Select(x => (input[x.Y][x.X], x))
                     .ToArray();
