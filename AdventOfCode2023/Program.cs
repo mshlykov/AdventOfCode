@@ -10,3 +10,5 @@ Console.WriteLine(Day4.SolveP1("Scratchcards.txt"));
 Console.WriteLine(Day4.SolveP2("Scratchcards.txt"));
 Console.WriteLine(Day5.SolveP1("YouGiveASeedAFertilizer.txt"));
 Console.WriteLine(Day5.SolveP2("YouGiveASeedAFertilizer.txt"));
+Console.WriteLine(Day6.SolveP1("WaitForIt.txt"));
+Console.WriteLine(Day6.SolveP2("WaitForIt.txt"));
