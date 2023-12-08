@@ -14,3 +14,5 @@ Console.WriteLine(Day6.SolveP1("WaitForIt.txt"));
 Console.WriteLine(Day6.SolveP2("WaitForIt.txt"));
 Console.WriteLine(Day7.SolveP1("CamelCards.txt"));
 Console.WriteLine(Day7.SolveP2("CamelCards.txt"));
+Console.WriteLine(Day8.SolveP1("HauntedWasteland.txt"));
+Console.WriteLine(Day8.SolveP2("HauntedWasteland.txt"));
