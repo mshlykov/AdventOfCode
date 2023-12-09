@@ -16,3 +16,5 @@ Console.WriteLine(Day7.SolveP1("CamelCards.txt"));
 Console.WriteLine(Day7.SolveP2("CamelCards.txt"));
 Console.WriteLine(Day8.SolveP1("HauntedWasteland.txt"));
 Console.WriteLine(Day8.SolveP2("HauntedWasteland.txt"));
+Console.WriteLine(Day9.SolveP1("MirageMaintenance.txt"));
+Console.WriteLine(Day9.SolveP2("MirageMaintenance.txt"));
