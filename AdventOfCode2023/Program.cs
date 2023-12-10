@@ -18,3 +18,5 @@ Console.WriteLine(Day8.SolveP1("HauntedWasteland.txt"));
 Console.WriteLine(Day8.SolveP2("HauntedWasteland.txt"));
 Console.WriteLine(Day9.SolveP1("MirageMaintenance.txt"));
 Console.WriteLine(Day9.SolveP2("MirageMaintenance.txt"));
+Console.WriteLine(Day10.SolveP1("PipeMaze.txt"));
+Console.WriteLine(Day10.SolveP2("PipeMaze.txt"));
