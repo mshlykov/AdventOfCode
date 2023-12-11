@@ -20,3 +20,5 @@ Console.WriteLine(Day9.SolveP1("MirageMaintenance.txt"));
 Console.WriteLine(Day9.SolveP2("MirageMaintenance.txt"));
 Console.WriteLine(Day10.SolveP1("PipeMaze.txt"));
 Console.WriteLine(Day10.SolveP2("PipeMaze.txt"));
+Console.WriteLine(Day11.SolveP1("CosmicExpansion.txt"));
+Console.WriteLine(Day11.SolveP2("CosmicExpansion.txt"));
