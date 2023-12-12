@@ -22,3 +22,5 @@ Console.WriteLine(Day10.SolveP1("PipeMaze.txt"));
 Console.WriteLine(Day10.SolveP2("PipeMaze.txt"));
 Console.WriteLine(Day11.SolveP1("CosmicExpansion.txt"));
 Console.WriteLine(Day11.SolveP2("CosmicExpansion.txt"));
+Console.WriteLine(Day12.SolveP1("HotSprings.txt"));
+Console.WriteLine(Day12.SolveP2("HotSprings.txt"));
