@@ -24,3 +24,5 @@ Console.WriteLine(Day11.SolveP1("CosmicExpansion.txt"));
 Console.WriteLine(Day11.SolveP2("CosmicExpansion.txt"));
 Console.WriteLine(Day12.SolveP1("HotSprings.txt"));
 Console.WriteLine(Day12.SolveP2("HotSprings.txt"));
+Console.WriteLine(Day13.SolveP1("PointOfIncidence.txt"));
+Console.WriteLine(Day13.SolveP2("PointOfIncidence.txt"));
