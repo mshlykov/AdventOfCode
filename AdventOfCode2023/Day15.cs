@@ -7,11 +7,7 @@ internal class Day15
 
     public static object SolveP2(string fileName)
     {
-        var dict = new List<(string, long)>[256];
-        for (var i = 0; i < dict.Length; ++i)
-        {
-            dict[i] = [];
-        }
+        var dict = new Dictionary<long, List<(string, long)>>();
 
         var input = GetInput(fileName);
         foreach (var x in input)
@@ -20,10 +16,13 @@ internal class Day15
             {
                 var name = x[..^1];
                 var hash = GetHash(name);
-                var item = dict[hash].FirstOrDefault(x => x.Item1 == name, (null, -1));
-                if (item.Item1 != null)
+                if (dict.TryGetValue(hash, out List<(string, long)>? value))
                 {
-                    dict[hash].Remove(item);
+                    var item = value.FirstOrDefault(x => x.Item1 == name, (null, -1));
+                    if (item.Item1 != null)
+                    {
+                        value.Remove(item);
+                    }
                 }
             }
             else
@@ -33,26 +32,31 @@ internal class Day15
                 var val = long.Parse(comps[1]);
                 var hash = GetHash(name);
 
-                var item = dict[hash].FirstOrDefault(x => x.Item1 == name, (null, -1));
+                if (!dict.TryGetValue(hash, out List<(string, long)>? value))
+                {
+                    value = [];
+                    dict[hash] = value;
+                }
+
+                var item = value.FirstOrDefault(x => x.Item1 == name, (null, -1));
                 if (item.Item1 != null)
                 {
-                    var idx = dict[hash].IndexOf(item);
-
-                    dict[hash][idx] = (name, val);
+                    var idx = value.IndexOf(item);
+                    value[idx] = (name, val);
                 }
                 else
                 {
-                    dict[hash].Add((name, val));
+                    value.Add((name, val));
                 }
             }
         }
 
         var res = 0L;
-        for (var i = 0; i < dict.Length; ++i)
+        foreach (var pair in dict)
         {
-            for (var j = 0; j < dict[i].Count; ++j)
+            for (var j = 0; j < pair.Value.Count; ++j)
             {
-                res += (i + 1) * (j + 1) * dict[i][j].Item2;
+                res += (pair.Key + 1) * (j + 1) * pair.Value[j].Item2;
             }
         }
 
