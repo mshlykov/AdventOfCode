@@ -28,3 +28,5 @@ Console.WriteLine(Day13.SolveP1("PointOfIncidence.txt"));
 Console.WriteLine(Day13.SolveP2("PointOfIncidence.txt"));
 Console.WriteLine(Day14.SolveP1("ParabolicReflectorDish.txt"));
 Console.WriteLine(Day14.SolveP2("ParabolicReflectorDish.txt"));
+Console.WriteLine(Day15.SolveP1("LensLibrary.txt"));
+Console.WriteLine(Day15.SolveP2("LensLibrary.txt"));
