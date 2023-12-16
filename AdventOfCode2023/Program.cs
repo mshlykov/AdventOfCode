@@ -30,3 +30,5 @@ Console.WriteLine(Day14.SolveP1("ParabolicReflectorDish.txt"));
 Console.WriteLine(Day14.SolveP2("ParabolicReflectorDish.txt"));
 Console.WriteLine(Day15.SolveP1("LensLibrary.txt"));
 Console.WriteLine(Day15.SolveP2("LensLibrary.txt"));
+Console.WriteLine(Day16.SolveP1("TheFloorWillBeLava.txt"));
+Console.WriteLine(Day16.SolveP2("TheFloorWillBeLava.txt"));
