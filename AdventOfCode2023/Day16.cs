@@ -32,22 +32,16 @@ internal class Day16
         return starts.Max(x => CountEnergized(x, input));
     }
 
-    private static (int i, int j)  GetNextCoord((int i, int j) coords, Dir d)
+    private static (int i, int j)  GetNextCoord((int i, int j) coords, Dir d) => d switch
     {
-        return d switch
-        {
-            Dir.R => (coords.i, coords.j + 1),
-            Dir.L => (coords.i, coords.j - 1),
-            Dir.T => (coords.i - 1, coords.j),
-            Dir.B => (coords.i + 1, coords.j),
-            _ => throw new Exception(),
-        };
-    }
+        Dir.R => (coords.i, coords.j + 1),
+        Dir.L => (coords.i, coords.j - 1),
+        Dir.T => (coords.i - 1, coords.j),
+        Dir.B => (coords.i + 1, coords.j),
+        _ => throw new Exception(),
+    };
 
-    private static bool IsInField((int i, int j) beam, string[] input)
-    {
-        return beam.i >= 0 && beam.i < input.Length && beam.j >= 0 && beam.j < input[0].Length;
-    }
+    private static bool IsInField((int i, int j) beam, string[] input) => beam.i >= 0 && beam.i < input.Length && beam.j >= 0 && beam.j < input[0].Length;
 
     private static long CountEnergized(((int i, int j), Dir d) start, string[] input)
     {
@@ -55,35 +49,18 @@ internal class Day16
         {
             start
         };
-
         var allBeams = beams.ToHashSet();
-        var energized = new HashSet<(int i, int j)>(beams.Select(x => x.Item1));
 
         while (beams.Count != 0)
         {
-            var newBeams = new List<((int i, int j), Dir d)>();
-
-            void MakeMove((int i, int j) coords, Dir d)
-            {
-                if (IsInField(coords, input))
-                {
-                    if (allBeams.Add((coords, d)))
-                    {
-                        newBeams.Add((coords, d));
-                    }
-                    energized.Add(coords);
-                }
-            }
-
+            var candidates = new List<((int i, int j), Dir d)>();
             foreach (var beam in beams)
             {
                 switch (input[beam.Item1.i][beam.Item1.j])
                 {
                     case '.':
                         {
-                            var nextCoords = GetNextCoord(beam.Item1, beam.d);
-
-                            MakeMove(nextCoords, beam.d);
+                            candidates.Add((GetNextCoord(beam.Item1, beam.d), beam.d));
                         }
                         break;
                     case '\\':
@@ -96,8 +73,7 @@ internal class Day16
                                 Dir.T => Dir.L,
                                 _ => throw new NotImplementedException()
                             };
-                            var nextCoords = GetNextCoord(beam.Item1, newDir);
-                            MakeMove(nextCoords, newDir);
+                            candidates.Add((GetNextCoord(beam.Item1, newDir), newDir));
                         }
                         break;
                     case '/':
@@ -110,24 +86,19 @@ internal class Day16
                                 Dir.T => Dir.R,
                                 _ => throw new NotImplementedException()
                             };
-                            var nextCoords = GetNextCoord(beam.Item1, newDir);
-                            MakeMove(nextCoords, newDir);
+                            candidates.Add((GetNextCoord(beam.Item1, newDir), newDir));
                         }
                         break;
                     case '-':
                         {
                             if (beam.d == Dir.R || beam.d == Dir.L)
                             {
-                                var nextCoords = GetNextCoord(beam.Item1, beam.d);
-                                MakeMove(nextCoords, beam.d);
+                                candidates.Add((GetNextCoord(beam.Item1, beam.d), beam.d));
                             }
                             else
                             {
-                                var nextCoords1 = GetNextCoord(beam.Item1, Dir.R);
-                                MakeMove(nextCoords1, Dir.R);
-
-                                var nextCoords2 = GetNextCoord(beam.Item1, Dir.L);
-                                MakeMove(nextCoords2, Dir.L);
+                                candidates.Add((GetNextCoord(beam.Item1, Dir.R), Dir.R));
+                                candidates.Add((GetNextCoord(beam.Item1, Dir.L), Dir.L));
                             }
                         }
                         break;
@@ -135,25 +106,24 @@ internal class Day16
                         {
                             if (beam.d == Dir.T || beam.d == Dir.B)
                             {
-                                var nextCoords = GetNextCoord(beam.Item1, beam.d);
-                                MakeMove(nextCoords, beam.d);
+                                candidates.Add((GetNextCoord(beam.Item1, beam.d), beam.d));
                             }
                             else
                             {
-                                var nextCoords1 = GetNextCoord(beam.Item1, Dir.T);
-                                MakeMove(nextCoords1, Dir.T);
-
-                                var nextCoords2 = GetNextCoord(beam.Item1, Dir.B);
-                                MakeMove(nextCoords2, Dir.B);
+                                candidates.Add((GetNextCoord(beam.Item1, Dir.T), Dir.T));
+                                candidates.Add((GetNextCoord(beam.Item1, Dir.B), Dir.B));
                             }
                         }
                         break;
                 }
             }
-            beams = newBeams;
+
+            beams = candidates.Where(x => IsInField(x.Item1, input) && allBeams.Add(x))
+                .ToList();
         }
 
-        return energized.Count;
+        return allBeams.DistinctBy(x => x.Item1)
+            .Count();
     }
 
     private static IEnumerable<string> GetInput(string fileName)
