@@ -32,3 +32,5 @@ Console.WriteLine(Day15.SolveP1("LensLibrary.txt"));
 Console.WriteLine(Day15.SolveP2("LensLibrary.txt"));
 Console.WriteLine(Day16.SolveP1("TheFloorWillBeLava.txt"));
 Console.WriteLine(Day16.SolveP2("TheFloorWillBeLava.txt"));
+Console.WriteLine(Day17.SolveP1("ClumsyCrucible.txt"));
+Console.WriteLine(Day17.SolveP2("ClumsyCrucible.txt"));
