@@ -105,11 +105,21 @@ internal class Day18
 
     private static long GetArea(IEnumerable<((long i, long j) p1, (long i, long j) p2)> edges)
     {
-        var res = 0L;
-        var (minJ, maxJ) = (edges.Min(x => x.p1.j), edges.Max(x => x.p1.j));
-        for (var j = minJ; j <= maxJ; ++j)
+        var jList = edges
+            .Where(x => x.p1.j == x.p2.j)
+            .Select(x => x.p1.j)
+            .Distinct()
+            .OrderBy(x => x)
+            .ToArray();
+        var res = GetThickNess(jList[0], edges);
+        for (var t = 1; t < jList.Length; ++t)
         {
-            res += GetThickNess(j, edges);
+            if (jList[t] - jList[t - 1] - 1 != 0)
+            {
+                res += GetThickNess(jList[t] - 1, edges) * (jList[t] - jList[t - 1] - 1);
+            }
+
+            res += GetThickNess(jList[t], edges);
         }
 
         return res;
