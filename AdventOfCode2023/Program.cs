@@ -34,3 +34,5 @@ Console.WriteLine(Day16.SolveP1("TheFloorWillBeLava.txt"));
 Console.WriteLine(Day16.SolveP2("TheFloorWillBeLava.txt"));
 Console.WriteLine(Day17.SolveP1("ClumsyCrucible.txt"));
 Console.WriteLine(Day17.SolveP2("ClumsyCrucible.txt"));
+Console.WriteLine(Day18.SolveP1("LavaductLagoon.txt"));
+Console.WriteLine(Day18.SolveP2("LavaductLagoon.txt"));
