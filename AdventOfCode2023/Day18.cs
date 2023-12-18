@@ -57,7 +57,7 @@ internal class Day18
         }
     }
 
-    private static long GetThickNess(long j, IEnumerable<((long i, long j) p1, (long i, long j) p2)> edges)
+    private static long GetThickness(long j, IEnumerable<((long i, long j) p1, (long i, long j) p2)> edges)
     {
         var crossingEdges = edges.Where(x => x.p1.i == x.p2.i && j >= Math.Min(x.p1.j, x.p2.j) && j <= Math.Max(x.p1.j, x.p2.j) ||
         x.p1.j == x.p2.j && x.p1.j == j)
@@ -111,15 +111,15 @@ internal class Day18
             .Distinct()
             .OrderBy(x => x)
             .ToArray();
-        var res = GetThickNess(jList[0], edges);
+        var res = GetThickness(jList[0], edges);
         for (var t = 1; t < jList.Length; ++t)
         {
             if (jList[t] - jList[t - 1] - 1 != 0)
             {
-                res += GetThickNess(jList[t] - 1, edges) * (jList[t] - jList[t - 1] - 1);
+                res += GetThickness(jList[t] - 1, edges) * (jList[t] - jList[t - 1] - 1);
             }
 
-            res += GetThickNess(jList[t], edges);
+            res += GetThickness(jList[t], edges);
         }
 
         return res;
