@@ -38,3 +38,5 @@ Console.WriteLine(Day18.SolveP1("LavaductLagoon.txt"));
 Console.WriteLine(Day18.SolveP2("LavaductLagoon.txt"));
 Console.WriteLine(Day19.SolveP1("Aplenty.txt"));
 Console.WriteLine(Day19.SolveP2("Aplenty.txt"));
+Console.WriteLine(Day23.SolveP1("ALongWalk.txt"));
+Console.WriteLine(Day23.SolveP2("ALongWalk.txt"));
