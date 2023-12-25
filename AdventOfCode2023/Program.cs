@@ -40,3 +40,5 @@ Console.WriteLine(Day19.SolveP1("Aplenty.txt"));
 Console.WriteLine(Day19.SolveP2("Aplenty.txt"));
 Console.WriteLine(Day23.SolveP1("ALongWalk.txt"));
 Console.WriteLine(Day23.SolveP2("ALongWalk.txt"));
+
+Console.WriteLine(Day25.SolveP1("Snowverload.txt"));
