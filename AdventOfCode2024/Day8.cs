@@ -67,14 +67,6 @@ internal class Day8
 
     private static IEnumerable<(int, int)> GetAntinodes(Dictionary<char, (int, int)[]> antennas, long maxI, long maxJ)
     {
-        foreach (var antArr in antennas.Values)
-        {
-            foreach (var ant in antArr)
-            {
-                yield return ant;
-            }
-        }
-
         foreach (var key in antennas.Keys)
         {
             var antennasData = antennas[key];
@@ -84,7 +76,10 @@ internal class Day8
                 {
                     var (antenna1, antenna2) = (antennasData[i], antennasData[j]);
                     var (d1, d2) = (antenna2.Item1 - antenna1.Item1, antenna2.Item2 - antenna1.Item2);
-                    for (var point = (antenna2.Item1 + d1, antenna2.Item2 + d2);
+                    var divisor = gcd(Math.Abs(d1), Math.Abs(d2));
+
+                    (d1, d2) = (d1 / divisor, d2 / divisor);
+                    for (var point = antenna1;
                         point.Item1 >= 0 && point.Item1 <= maxI && point.Item2 >= 0 && point.Item2 <= maxJ;
                         point = (point.Item1 + d1, point.Item2 + d2))
                     {
@@ -92,7 +87,7 @@ internal class Day8
                     }
 
                     (d1, d2) = (-d1, -d2);
-                    for (var point = (antenna1.Item1 + d1, antenna1.Item2 + d2);
+                    for (var point = antenna1;
                         point.Item1 >= 0 && point.Item1 <= maxI && point.Item2 >= 0 && point.Item2 <= maxJ;
                         point = (point.Item1 + d1, point.Item2 + d2))
                     {
@@ -101,6 +96,17 @@ internal class Day8
                 }
             }
         }
+    }
+
+    static int gcd(int a, int b)
+    {
+        while (b != 0L)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 
     private static IEnumerable<char[]> GetInput(string fileName)
