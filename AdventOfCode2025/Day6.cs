@@ -103,5 +103,3 @@ IEnumerable<(long[], char)> ParseInput2(string fileName)
         }
     }
 }
-
-record Range(long Start, long End);
